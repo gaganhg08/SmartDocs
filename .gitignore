@@ -41,7 +41,7 @@ secrets.toml
 .settings/
 
 # ==============================================================================
-# OS Generated Files
+# OS Generated Files (Windows & macOS)
 # ==============================================================================
 .DS_Store
 .DS_Store?
@@ -50,6 +50,8 @@ secrets.toml
 .Trashes
 ehthumbs.db
 Thumbs.db
+desktop.ini
+Desktop.ini
 
 # ==============================================================================
 # Testing & Coverage
@@ -85,12 +87,16 @@ vector_store/
 faiss_index/
 
 # ==============================================================================
-# Temporary Files & User Uploads
+# Temporary Files, Databases & User Uploads
 # ==============================================================================
 *.log
 *.tmp
 *.bak
+*.sqlite3
+*.db
+.cache/
 uploads/
 temp/
+downloads/
 *.pdf
 !tests/fixtures/*.pdf

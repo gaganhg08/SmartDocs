@@ -1,8 +1,39 @@
-"""SmartDocs - Generative AI Document Assistant.
+"""SmartDocs - Generative AI Document Assistant package."""
 
-A Retrieval-Augmented Generation (RAG) framework for querying PDF documents
-with LLMs, FAISS vector indexing, and Sentence Transformers.
-"""
+import os
+os.environ.setdefault("TQDM_DISABLE", "1")
+try:
+    import tqdm
+    tqdm.tqdm.monitor_interval = 0
+except Exception:
+    pass
 
-__version__ = "0.1.0-dev"
-__author__ = "Gagan H G"
+from src.document_processor import DocumentProcessor, PDFValidationError
+from src.embeddings import EmbeddingManager, SmartDocsEmbeddings
+from src.vector_store import VectorStoreManager
+from src.rag_pipeline import (
+    RAGPipeline,
+    OllamaClient,
+    OllamaError,
+    OllamaServerUnavailableError,
+    OllamaModelNotFoundError,
+    SYSTEM_PROMPT,
+)
+
+from src.summarizer import DocumentSummarizer, SummarizationError
+
+__all__ = [
+    "DocumentProcessor",
+    "PDFValidationError",
+    "EmbeddingManager",
+    "SmartDocsEmbeddings",
+    "VectorStoreManager",
+    "RAGPipeline",
+    "OllamaClient",
+    "OllamaError",
+    "OllamaServerUnavailableError",
+    "OllamaModelNotFoundError",
+    "SYSTEM_PROMPT",
+    "DocumentSummarizer",
+    "SummarizationError",
+]
